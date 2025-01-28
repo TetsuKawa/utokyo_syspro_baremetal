@@ -109,3 +109,10 @@ void puth(unsigned long long value, unsigned char digits_len) {
   }
 }
 
+char compare_s(const char *first, const char *second, unsigned long long bytes) {
+  for (unsigned long long i = 0; i < bytes; i++) {
+    if (first[i] != second[i]) return 0;
+  }
+  return 1;
+}
+

@@ -11,26 +11,6 @@ void start(void *SystemTable __attribute__ ((unused)), struct HardwareInfo *_har
 
   // To here - sample code
   init_frame_buffer(&hardware_info.fb);
-  // putc('T');
-  int i = 0;
-
-  while(i < 30) {
-    putc('T');
-    putc('.');
-    putc('K');
-    puts("\n\n");
-    puts("Hello, SysPro!\n");
-    puts("\n");
-    puth(255, 5);
-    puts("\n");
-    i++;
-  };
-
-  i = 0;
-  while(i < 500) {
-    puts("T");
-    i++;
-  }
 
   // Do not delete it!
   while (1);

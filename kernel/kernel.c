@@ -11,7 +11,7 @@ void start(void *SystemTable __attribute__ ((unused)), struct HardwareInfo *_har
 
   // To here - sample code
   init_frame_buffer(&hardware_info.fb);
-  // putc('T');
+
   int i = 0;
 
   while(i < 30) {

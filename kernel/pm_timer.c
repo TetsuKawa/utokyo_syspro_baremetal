@@ -26,7 +26,7 @@ void init_acpi_pm_timer(struct RSDP *rsdp) {
       break;
     }
   }
-};
+}
 
 void pm_timer_wait_millisec(unsigned int msec) {
   unsigned int target_ticks = freq_hz * msec / 1000;
@@ -57,4 +57,4 @@ void pm_timer_wait_millisec(unsigned int msec) {
       }
     }
   }
-};
+}

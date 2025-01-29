@@ -2,6 +2,7 @@
 #include "util.h"
 
 #define TMR_VAL_EXT_BIT_OFFSET 8
+#define SDTM_SIZE 36
 
 const unsigned int freq_hz = 3579545;
 unsigned short pm_timer_blk;
@@ -9,10 +10,10 @@ char pm_timer_is_32;
 
 void init_acpi_pm_timer(struct RSDP *rsdp) {
   struct XSDT *xsdt = (struct XSDT *)rsdp->xsdt_address;
-  unsigned int other_tables_length = (xsdt->sdth.length - 36) / 8;
+  unsigned int other_tables_length = (xsdt->sdth.length - SDTM_SIZE) / 8;
 
   for (unsigned int i = 0; i < other_tables_length; i++) {
-    unsigned int offset = 36 + i * 8;
+    unsigned int offset = SDTM_SIZE + i * 8;
     unsigned long long *other_tables = (unsigned long long *)((char *)xsdt + offset);
     unsigned long long table_address = *other_tables;
     struct SDTH *header = (struct SDTH *)table_address;

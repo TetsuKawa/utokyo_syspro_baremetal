@@ -13,15 +13,9 @@ void start(void *SystemTable __attribute__ ((unused)), struct HardwareInfo *_har
   // To here - sample code
   init_frame_buffer(&hardware_info.fb);
   init_acpi_pm_timer(hardware_info.rsdp);
-  puts("Timer Start!\r\n");
-
-  int i = 0;
-  while (i < 50) {
-    pm_timer_wait_millisec(1000);
-    puts("1000ms passed!\r\n");
-    i++;
-  }
-  puts("Timer End!\r\n");
+  puts("lapic kHz: ");
+  unsigned int kHz = measure_lapic_freq_khz();
+  puth(kHz, 8);
   // Do not delete it!
   while (1);
 }

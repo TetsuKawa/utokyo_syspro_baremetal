@@ -14,6 +14,7 @@ void start(void *SystemTable __attribute__ ((unused)), struct HardwareInfo *_har
   init_frame_buffer(&hardware_info.fb);
   init_acpi_pm_timer(hardware_info.rsdp);
   puts("Timer Start!\r\n");
+
   int i = 0;
   while (i < 50) {
     pm_timer_wait_millisec(1000);

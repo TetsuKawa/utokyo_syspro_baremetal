@@ -25,7 +25,7 @@ void init_frame_buffer(struct FrameBuffer *fb) {
       pixel->b = 255;
     }
   }
-};
+}
 
 void shift_one_line() {
   for (unsigned int i = padding_y; i < (FB->height - padding_y); i++) {
@@ -46,7 +46,7 @@ void shift_one_line() {
       }
     }
   }
-};
+}
 
 void insert_line_break() {
   // delete current cursor position
@@ -64,7 +64,7 @@ void insert_line_break() {
     fb_y += FONT_HEIGHT;
     fb_x = padding_x;
   }
-};
+}
 
 void putc(char c) {
   for (unsigned int i = 0; i < FONT_HEIGHT; i++) {
@@ -83,7 +83,7 @@ void putc(char c) {
       pixel->r = pixel->g = pixel->b = 0;
     }
   } 
-};
+}
 
 void puts(char *str) {
   for (unsigned int i = 0; str[i] != '\0'; i++) {
@@ -99,7 +99,7 @@ void puts(char *str) {
 
     putc(str[i]);
   }
-};
+}
 
 void puth(unsigned long long value, unsigned char digits_len) {
   for (int i = digits_len - 1; i >= 0; i--) {

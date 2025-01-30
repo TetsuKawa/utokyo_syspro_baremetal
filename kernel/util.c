@@ -109,6 +109,17 @@ void puth(unsigned long long value, unsigned char digits_len) {
   }
 }
 
+void putd(unsigned long long value, unsigned char digits_len) {
+  for (int i = digits_len - 1; i >= 0; i--) {
+    unsigned long long pow = 1;
+    for (int j = 0; j < i; j++) {
+        pow *= 10;
+    }
+    unsigned char digit = (value / pow) % 10;
+    putc('0' + digit);
+  }
+}
+
 char compare_s(const char *first, const char *second, unsigned long long bytes) {
   for (unsigned long long i = 0; i < bytes; i++) {
     if (first[i] != second[i]) return 0;
